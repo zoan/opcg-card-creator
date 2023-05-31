@@ -25,10 +25,30 @@ model Card {
     id String @id @default(cuid())
     createdAt DateTime @default(now())
 
+    cardCategory CardCategory
+
+    power Int 
+    attribute Attribute
+    color String
     cardName String
+    life Int
+    type String
+
     authorId String
 
     @@index([authorId])
+}
+
+enum Attribute {
+    STRIKE
+}
+
+enum CardCategory {
+    LEADER
+    CHARACTER
+    EVENT
+    STAGE
+    DON
 }
 
 // Necessary for Next auth
